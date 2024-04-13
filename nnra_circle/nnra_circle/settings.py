@@ -28,7 +28,7 @@ import dj_database_url
 SECRET_KEY = 'django-insecure-8gy%-bc__6#t@q(ad^m-!mr3danz!80@j#0nt=&qqvb=2e#%(4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -197,53 +197,53 @@ else:
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER_DEBUG')
 
 
-# if DEBUG:
-#     CHANNEL_LAYERS = {
-#         "default": {
-#             "BACKEND": "channels.layers.InMemoryChannelLayer"
-#         }
-#     }
-# else:
-#     CHANNEL_LAYERS = {
-#         "default": {
-#             "BACKEND": "channels_redis.core.RedisChannelLayer",
-#             "CONFIG": {
-#                 "hosts": [("127.0.0.1", 6379)],
-#             },
-#         },
-#     }
-
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [("127.0.0.1", 6379)],
+if DEBUG:
+    CHANNEL_LAYERS = {
+        "default": {
+            "BACKEND": "channels.layers.InMemoryChannelLayer"
+        }
+    }
+else:
+    CHANNEL_LAYERS = {
+        "default": {
+            "BACKEND": "channels_redis.core.RedisChannelLayer",
+            "CONFIG": {
+                "hosts": [("127.0.0.1", 6379)],
+            },
         },
-    },
-}
+    }
+
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels_redis.core.RedisChannelLayer",
+#         "CONFIG": {
+#             "hosts": [("127.0.0.1", 6379)],
+#         },
+#     },
+# }
+
+if not DEBUG:
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
 
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = 'circle-bkt-96'
+
+    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+    AWS_S3_FILE_OVERWRITE = False
 
 
-AWS_STORAGE_BUCKET_NAME = 'circle-bkt-96'
+    STORAGES = {
 
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-
-AWS_S3_FILE_OVERWRITE = False
-
-
-STORAGES = {
-
-    # Media file (image) management   
-    "default": {
-        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
-    },
-    
-    # CSS and JS file management
-    "staticfiles": {
-        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
-    },
-}
+        # Media file (image) management   
+        "default": {
+            "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+        },
+        
+        # CSS and JS file management
+        "staticfiles": {
+            "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+        },
+    }
 

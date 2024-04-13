@@ -289,7 +289,7 @@ function updateMessageUi(messagebody, messageid) {
 function connectWebsocket() {
   loc = window.location;
   wsprotocol = loc.protocol === "https:" ? "wss://" : "ws://"; //setting the websocket protocol for the connection
-  const endpoint = wsprotocol + loc.host + loc.pathname;
+  const endpoint = wsprotocol + loc.host + loc.pathname + 'ws/';
   const socket = new WebSocket(endpoint);
 
   socket.addEventListener("message", function (e) {
