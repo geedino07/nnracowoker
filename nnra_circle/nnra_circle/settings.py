@@ -239,9 +239,7 @@ if not DEBUG:
         # Media file (image) management   
         "default": {
             "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
-            "OPTIONS": {
-                "LOCATION": 'media/'
-            }
+            "LOCATION": 'media/'
         },
         
         # CSS and JS file management
