@@ -85,7 +85,7 @@ LOGIN_REDIRECT_URL = 'room'
 LOGIN_URL = 'accounts:login'
 LOGOUT_URL = 'accounts:logout'
 
-
+# ====== DATABASE CONFIGURATIONS
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -227,7 +227,7 @@ if not DEBUG:
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
 
-    AWS_STORAGE_BUCKET_NAME = 'circle-bkt-96'
+    AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 
     AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
