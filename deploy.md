@@ -12,6 +12,10 @@ sudo apt install python3-venv
 ```
 
 ```
+sudo apt install libpq-dev
+```
+
+```
 sudo apt install nginx
 ```
 
@@ -50,6 +54,8 @@ cd NNRA-circle
 ```
 pip install -r requirements.txt
 ```
+
+
 
 
 
