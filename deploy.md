@@ -317,6 +317,17 @@ Anytime you make changes to the nginx configuration file, you can reload it usin
 sudo service nginx reload
 ```
 
-# Now the site should be available at the domain or ip you specifified as a server_name for nginx
+ _Now the site should be available at the domain or ip you specifified as a server_name for nginx_
 
+ ## Seed departments and office tables
+ To populate your new database department and office tables with data, make reqeusts to the following endpoints
 
+ ```
+http://yourserver/accounts/seed/department/
+ ```
+
+```
+http://yourserver/accounts/seed/offices/
+```
+
+## !!!!🚨🚨🚨 It is imperative that `http://yourserver/accounts/seed/department/` is run before `http://yourserver/accounts/seed/offices/`
