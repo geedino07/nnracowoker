@@ -331,3 +331,17 @@ http://yourserver/accounts/seed/offices/
 ```
 
 ## !!!!🚨🚨🚨 It is imperative that `http://yourserver/accounts/seed/department/` is run before `http://yourserver/accounts/seed/offices/`
+
+
+# Configure redis
+```
+sudo apt install redis-server
+```
+
+```
+sudo systemctl enable redis-server
+```
+
+```
+sudo systemctl status redis
+```
