@@ -101,7 +101,7 @@ else:
     DATABASES = {
         'default': dj_database_url.config(
             # Replace this value with your local database's connection string.
-            default='postgres://nnra_circle_user:5Q1gf1XA1zP20ieKrgij4j93IvZiJ4Mj@dpg-coc7u3u3e1ms73b05m20-a.oregon-postgres.render.com/nnra_circle',
+            default=os.environ.get('RENDER_DB_EXTERNAL_URL'),
             conn_max_age=600
         )
     }
