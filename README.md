@@ -25,7 +25,7 @@ pip install -r requirements.txt
 ### Set debug value
 To run this project locally, we need DEBUG variable in the settings.py file to be set to true, this tells django we are in a development environment
 
-Go into the settings.py file in the nnra_circle directory and set the value of the variable DEBUG to True
+Go into the settings.py file in the ```nnra_circle``` directory and set the value of the variable DEBUG to True
 ```
 DEBUG = True 
 ```
