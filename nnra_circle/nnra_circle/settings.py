@@ -182,10 +182,10 @@ if DEBUG:
     EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
     EMAIL_PORT = '2525'
     EMAIL_USE_TLS = True
-    EMAIL_HOST_USER = 'e1c66396671ac5'
-    EMAIL_HOST_PASSWORD = 'b7b9bff8b5ffb2'
-    EMAIL_FROM_USER = 'e1c66396671ac5'
-    DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+    EMAIL_HOST_USER = 'd23c541a503100'
+    EMAIL_HOST_PASSWORD = '7dbc11c5fd1e46'
+    EMAIL_FROM_USER = 'd23c541a503100'
+    DEFAULT_FROM_EMAIL = EMAIL_HOST_USER 
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_HOST = 'smtp.gmail.com'
